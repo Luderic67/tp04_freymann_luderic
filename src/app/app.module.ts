@@ -14,6 +14,7 @@ import {
   faSearch,
   faFrown,
   faFileCode,
+  faShoppingCart,
 } from '@fortawesome/free-solid-svg-icons';
 import { FormComponent } from './components/authentication/form/form.component';
 import { ControlMessagesComponent } from './components/authentication/control-messages/control-messages.component';
@@ -58,6 +59,6 @@ import { HomeComponent } from './components/home/home.component';
 })
 export class AppModule {
   constructor(private library: FaIconLibrary) {
-    library.addIcons(faGithub, faSearch, faFrown, faFileCode);
+    library.addIcons(faGithub, faSearch, faFrown, faFileCode, faShoppingCart);
   }
 }

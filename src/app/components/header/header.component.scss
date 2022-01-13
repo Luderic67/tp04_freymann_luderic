@@ -50,13 +50,18 @@
       justify-content: end;
 
       a {
-        margin: 1rem;
+        margin: 0.5rem;
         font-size: 1rem;
         padding: 0.3rem 1.2rem;
         border-radius: 10px;
         transition: 0.3s all;
         color: white;
         text-decoration: none;
+        position: relative;
+
+        &.icon {
+          font-size: 1.1rem;
+        }
 
         @media screen and (max-width: 768px) {
           margin: 0.5rem 1rem;
@@ -66,6 +71,21 @@
         &:active {
           cursor: pointer;
           background-color: #ffffff15;
+        }
+
+        p {
+          position: absolute;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 0.8rem;
+          border-radius: 50%;
+          width: 20px;
+          height: 20px;
+          background: rgb(255, 64, 64);
+          top: -5px;
+          right: 2px;
         }
       }
     }
