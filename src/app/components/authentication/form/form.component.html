@@ -1,0 +1,100 @@
+<form class="form" [formGroup]="registrationForm" (ngSubmit)="handleSubmit()">
+  <div class="form-group">
+    <h2>Personal Information</h2>
+    <div class="form-field">
+      <label for="civility">Civility <span>*</span></label>
+      <select id="civility" formControlName="civility">
+        <option *ngFor="let gender of genders" [ngValue]="gender">
+          {{ gender }}
+        </option>
+      </select>
+      <app-control-messages
+        [control]="registrationForm.get('civility')"
+      ></app-control-messages>
+    </div>
+    <div class="form-field">
+      <label for="first_name">First Name <span>*</span></label>
+      <input
+        id="first_name"
+        type="text"
+        formControlName="first_name"
+        required
+      />
+      <app-control-messages
+        [control]="registrationForm.get('first_name')"
+      ></app-control-messages>
+    </div>
+    <div class="form-field">
+      <label for="last_name">Last Name <span>*</span></label>
+      <input id="last_name" type="text" formControlName="last_name" />
+      <app-control-messages
+        [control]="registrationForm.get('last_name')"
+      ></app-control-messages>
+    </div>
+    <div class="form-field">
+      <label for="phone_number">Phone number <span>*</span></label>
+      <input id="phone_number" type="tel" formControlName="phone_number" />
+      <app-control-messages
+        [control]="registrationForm.get('phone_number')"
+      ></app-control-messages>
+    </div>
+    <div class="form-field">
+      <label for="email">Email <span>*</span></label>
+      <input id="email" type="email" formControlName="email" />
+      <app-control-messages
+        [control]="registrationForm.get('email')"
+      ></app-control-messages>
+    </div>
+  </div>
+  <div class="form-group">
+    <h2>Address</h2>
+    <div class="form-field">
+      <label for="street">Street <span>*</span></label>
+      <input id="street" type="text" formControlName="street" />
+      <app-control-messages
+        [control]="registrationForm.get('street')"
+      ></app-control-messages>
+    </div>
+    <div class="form-field">
+      <label for="zip_code">Zip Code <span>*</span></label>
+      <input id="zip_code" type="number" formControlName="zip_code" />
+      <app-control-messages
+        [control]="registrationForm.get('zip_code')"
+      ></app-control-messages>
+    </div>
+    <div class="form-field">
+      <label for="city">City <span>*</span></label>
+      <input id="city" type="text" formControlName="city" />
+      <app-control-messages
+        [control]="registrationForm.get('city')"
+      ></app-control-messages>
+    </div>
+    <div class="form-field">
+      <label for="country">Country <span>*</span></label>
+      <select id="country" formControlName="country">
+        <option *ngFor="let loc of locations" [ngValue]="loc">{{ loc }}</option>
+      </select>
+      <app-control-messages
+        [control]="registrationForm.get('country')"
+      ></app-control-messages>
+    </div>
+  </div>
+  <div class="form-group">
+    <h2>Authentication</h2>
+    <div class="form-field">
+      <label for="login">Login <span>*</span></label>
+      <input id="login" type="text" formControlName="login" />
+      <app-control-messages
+        [control]="registrationForm.get('login')"
+      ></app-control-messages>
+    </div>
+    <div class="form-field">
+      <label for="password">Password <span>*</span></label>
+      <input id="password" type="password" formControlName="password" />
+      <app-control-messages
+        [control]="registrationForm.get('password')"
+      ></app-control-messages>
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+</form>

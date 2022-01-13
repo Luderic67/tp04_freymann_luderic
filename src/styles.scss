@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+/* Fonts */
+@font-face {
+  font-family: "Poppins-Regular";
+  src: local("Poppins-Regular"),
+    url(./assets/fonts/Poppins-Regular.ttf) format("ttf");
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+::-webkit-scrollbar-thumb:active {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  font-family: "Poppins-Regular", sans-serif;
+}
+
+// Card
+.card {
+  box-sizing: border-box;
+  width: 80%;
+  padding: 1rem 6rem 6rem 6rem;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.375);
+  box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  margin: 30px 0;
+
+  @media screen and (max-width: 768px) {
+    margin: 1rem 1rem;
+    padding: 1rem 2rem 6rem 2rem;
+  }
+
+  h2.card_title {
+    align-self: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.225);
+    box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+    width: 40%;
+    text-align: center;
+    border-radius: 1rem;
+    min-width: 250px;
+  }
+}

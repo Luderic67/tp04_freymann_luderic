@@ -1,0 +1,20 @@
+<div class="search-container">
+  <form [formGroup]="searchbarForm">
+    <div class="search-bar">
+      <input
+        type="text"
+        id="searchbar"
+        formControlName="research"
+        (input)="handleResearch()"
+      />
+      <div class="search-bar-icon">
+        <fa-icon [icon]="['fas', 'search']"></fa-icon>
+      </div>
+    </div>
+    <select id="filter" formControlName="filter" (change)="handleResearch()">
+      <option *ngFor="let item of filters" [ngValue]="item">
+        {{ item }}
+      </option>
+    </select>
+  </form>
+</div>

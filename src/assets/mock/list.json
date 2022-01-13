@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Lait",
+    "price": 1.99
+  },
+  {
+    "name": "Farine",
+    "price": 0.99
+  },
+  {
+    "name": "Sucre",
+    "price": 0.99
+  },
+  {
+    "name": "Levure",
+    "price": 1.59
+  },
+  {
+    "name": "Oeuf",
+    "price": 2.99
+  },
+  {
+    "name": "Pate d'amande",
+    "price": 3.99
+  },
+  {
+    "name": "Beurre",
+    "price": 1.99
+  },
+  {
+    "name": "Huile",
+    "price": 0.99
+  },
+  {
+    "name": "Vanille",
+    "price": 4.59
+  },
+  {
+    "name": "Chocolat",
+    "price": 2.39
+  }
+]

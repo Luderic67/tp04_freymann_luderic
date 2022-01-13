@@ -1,0 +1,20 @@
+.form-validate {
+  display: flex;
+  flex-direction: column;
+
+  li {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    margin: 0.4rem;
+
+    span {
+      font-weight: bold;
+
+      &.oops {
+        font-size: 0.9rem;
+        padding-left: 1rem;
+        color: rgb(236, 67, 67);
+      }
+    }
+  }
+}

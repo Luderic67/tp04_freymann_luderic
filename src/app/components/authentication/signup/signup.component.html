@@ -1,0 +1,9 @@
+<div class="card">
+  <h2 class="card_title">FORM</h2>
+  <app-form (redirect)="form_data = $event"></app-form>
+</div>
+<div class="card">
+  <h2 class="card_title">RESUME</h2>
+  <input class="scroll_target" id="resume_card" />
+  <app-resume [data]="form_data"></app-resume>
+</div>

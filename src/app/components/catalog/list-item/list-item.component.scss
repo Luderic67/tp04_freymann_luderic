@@ -1,0 +1,40 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.list {
+  &-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    border: none;
+    border-radius: 15px;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+
+    p {
+      margin: 0;
+      margin-right: 1rem;
+      flex: 1;
+      text-align: end;
+    }
+
+    h3 {
+      margin: 0;
+      margin-left: 1rem;
+      flex: 3;
+    }
+  }
+}

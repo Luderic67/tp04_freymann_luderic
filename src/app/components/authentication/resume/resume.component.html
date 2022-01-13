@@ -1,0 +1,37 @@
+<div
+  class="form-dirty"
+  [ngStyle]="{ display: isResumeVisible ? 'none' : 'flex' }"
+>
+  <h1 class="title">
+    Please fill all fields in the form above and submit it! Be sure that there
+    is no errors on submitting.
+  </h1>
+</div>
+<div
+  class="form-validate"
+  [ngStyle]="{ display: isResumeVisible ? 'flex' : 'none' }"
+>
+  <h1 class="title">
+    Congratulations, all your data have been retrived from the form! here it is,
+    check if everything's right.
+  </h1>
+  <ul>
+    <li><span>Civility</span>: {{ form_data?.civility }}</li>
+    <li><span>First name</span>: {{ form_data?.first_name }}</li>
+    <li><span>Last name</span>: {{ form_data?.last_name }}</li>
+    <li>
+      <span>Phone number</span>:
+      {{ form_data?.phone_number | phoneNumber: form_data?.country }}
+    </li>
+    <li><span>Email</span>: {{ form_data?.email }}</li>
+    <li><span>Street</span>: {{ form_data?.street }}</li>
+    <li><span>Zip code</span>: {{ form_data?.zip_code }}</li>
+    <li><span>City</span>: {{ form_data?.city }}</li>
+    <li><span>Country</span>: {{ form_data?.country }}</li>
+    <li><span>Login</span>: {{ form_data?.login }}</li>
+    <li>
+      <span>Password</span>: {{ form_data?.password }}
+      <span class="oops">OOPS, the password is visisble.</span>
+    </li>
+  </ul>
+</div>
