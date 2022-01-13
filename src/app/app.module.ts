@@ -24,12 +24,33 @@ import { ListComponent } from './components/catalog/list/list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListItemComponent } from './components/catalog/list-item/list-item.component';
 import { SearchbarComponent } from './components/catalog/searchbar/searchbar.component';
-import { AppRoutingModule } from './routes/app-routing.module';
 import { SignupComponent } from './components/authentication/signup/signup.component';
-import { ClientModule } from './routes/client.module';
 import { NotFoundComponent } from './components/errors/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { CartComponent } from './components/catalog/cart/cart.component';
+import { NgxsModule } from '@ngxs/store';
+import { RouterModule, Routes } from '@angular/router';
+import { ProductState } from 'shared/states/products-state';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  {
+    path: 'authentication',
+    loadChildren: () =>
+      import('./components/authentication/client.module').then(
+        (m) => m.ClientModule
+      ),
+  },
+  {
+    path: 'products',
+    loadChildren: () =>
+      import('./components/catalog/catalog.module').then(
+        (m) => m.CatalogModule
+      ),
+  },
+  { path: 'not-found-404', component: NotFoundComponent },
+  { path: '**', redirectTo: 'not-found-404' },
+];
 
 @NgModule({
   declarations: [
@@ -53,9 +74,10 @@ import { CartComponent } from './components/catalog/cart/cart.component';
     FontAwesomeModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule,
-    ClientModule,
+    NgxsModule.forRoot([ProductState]),
+    RouterModule.forRoot(routes),
   ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent],
 })

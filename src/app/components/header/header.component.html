@@ -4,10 +4,12 @@
     <h1 routerLink="/">TP04 - Angular</h1>
   </div>
   <div class="nav-segment" id="right">
-    <a routerLink="/catalog">Catalog</a>
-    <a routerLink="/cart" class="icon">
+    <a routerLink="/products/catalog">Catalog</a>
+    <a routerLink="/products/cart" class="icon">
       <fa-icon [icon]="['fas', 'shopping-cart']"></fa-icon>
-      <p>2</p>
+      <p *ngIf="productsNumber$ | async as productsNumber">
+        {{ productsNumber }}
+      </p>
     </a>
   </div>
 </div>

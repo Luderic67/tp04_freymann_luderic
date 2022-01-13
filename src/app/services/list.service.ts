@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Item } from '../models/Item';
+import { Product } from 'shared/models/product';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +10,7 @@ import { Item } from '../models/Item';
 export class ListService {
   constructor(private http: HttpClient) {}
 
-  getList(): Observable<Item[]> {
-    return this.http.get<Item[]>(environment.baseUrl);
+  getList(): Observable<Product[]> {
+    return this.http.get<Product[]>(environment.baseUrl);
   }
 }

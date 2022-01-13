@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Select } from '@ngxs/store';
+import { ProductState } from 'shared/states/products-state';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor() {}
+  @Select(ProductState.getProductsLength) productsNumber$!: Observable<number>;
 }

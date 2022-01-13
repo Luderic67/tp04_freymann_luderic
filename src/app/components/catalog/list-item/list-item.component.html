@@ -1,14 +1,17 @@
 <div class="list-container">
   <div class="section-name">
-    <h3>{{ item.name }}</h3>
+    <h3>{{ product.name }}</h3>
   </div>
   <div class="section-price">
-    <p>{{ item.price }}€</p>
+    <p>{{ product.price }}€</p>
   </div>
   <div class="section-actions">
     <button class="details">Details</button>
-    <button class="add">
+    <button class="add" (click)="addToCart()">
       <fa-icon [icon]="['fas', 'shopping-cart']"></fa-icon>
+    </button>
+    <button class="add" (click)="addToCart()" *ngIf="isDeletable">
+      deletos
     </button>
   </div>
 </div>

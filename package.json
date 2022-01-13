@@ -23,6 +23,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@ngxs/store": "^3.7.3",
     "express": "^4.17.1",
     "path": "^0.12.7",
     "rxjs": "~7.4.0",

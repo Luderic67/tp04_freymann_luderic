@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Item } from 'src/app/models/Item';
+import { Product } from 'shared/models/product';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +7,9 @@ import { Item } from 'src/app/models/Item';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent {
-  items: Item[] = [];
+  products: Product[] = [];
 
-  setList(list: Item[]) {
-    this.items = list;
+  setList(list: Product[]) {
+    this.products = list;
   }
 }
