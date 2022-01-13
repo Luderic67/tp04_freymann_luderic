@@ -15,13 +15,33 @@
 
   .icon {
     color: white;
-    font-size: 2rem;
     cursor: pointer;
     height: 2.5rem;
     transition: font-size 0.1s;
+    font-size: 2rem;
 
     &:hover {
-      font-size: 2.2rem;
+      font-size: 2.1rem;
+    }
+  }
+
+  .link-list {
+    display: flex;
+    justify-content: center;
+  }
+
+  .link-item {
+    margin: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+
+    p {
+      background: rgb(51, 51, 51);
+      padding: 0.2rem 0.7rem;
+      border-radius: 5px;
     }
   }
 }

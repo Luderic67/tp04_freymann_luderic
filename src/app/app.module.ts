@@ -10,7 +10,11 @@ import {
   FaIconLibrary,
 } from '@fortawesome/angular-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faSearch, faFrown } from '@fortawesome/free-solid-svg-icons';
+import {
+  faSearch,
+  faFrown,
+  faFileCode,
+} from '@fortawesome/free-solid-svg-icons';
 import { FormComponent } from './components/authentication/form/form.component';
 import { ControlMessagesComponent } from './components/authentication/control-messages/control-messages.component';
 import { ResumeComponent } from './components/authentication/resume/resume.component';
@@ -54,6 +58,6 @@ import { HomeComponent } from './components/home/home.component';
 })
 export class AppModule {
   constructor(private library: FaIconLibrary) {
-    library.addIcons(faGithub, faSearch, faFrown);
+    library.addIcons(faGithub, faSearch, faFrown, faFileCode);
   }
 }
