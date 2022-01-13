@@ -29,6 +29,7 @@ import { SignupComponent } from './components/authentication/signup/signup.compo
 import { ClientModule } from './routes/client.module';
 import { NotFoundComponent } from './components/errors/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
+import { CartComponent } from './components/catalog/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { HomeComponent } from './components/home/home.component';
     SignupComponent,
     NotFoundComponent,
     HomeComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

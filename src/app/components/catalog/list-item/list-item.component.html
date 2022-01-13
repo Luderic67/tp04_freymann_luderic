@@ -1,4 +1,14 @@
 <div class="list-container">
-  <h3>{{ item.name }}</h3>
-  <p>{{ item.price }}€</p>
+  <div class="section-name">
+    <h3>{{ item.name }}</h3>
+  </div>
+  <div class="section-price">
+    <p>{{ item.price }}€</p>
+  </div>
+  <div class="section-actions">
+    <button class="details">Details</button>
+    <button class="add">
+      <fa-icon [icon]="['fas', 'shopping-cart']"></fa-icon>
+    </button>
+  </div>
 </div>
