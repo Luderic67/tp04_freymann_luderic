@@ -1,7 +1,12 @@
 <div class="card">
   <h2 class="card_title">CART</h2>
   <div *ngIf="products$ | async as products">
-    <app-list [products]="products" [isDeletable]="true"></app-list>
+    <app-list-item
+      *ngFor="let product of products"
+      [isDeletable]="true"
+      [product]="product.product"
+      [quantity]="product.quantity"
+    ></app-list-item>
   </div>
   <button (click)="removeAll()" class="delete-all" *ngIf="total$ | async">
     Delete all

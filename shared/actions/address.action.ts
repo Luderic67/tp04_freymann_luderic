@@ -15,3 +15,8 @@ export class RemoveAllAddress {
 
   constructor() {}
 }
+export class SetAddress {
+  static readonly type = '[Address] Set';
+
+  constructor(public payload: Address[]) {}
+}

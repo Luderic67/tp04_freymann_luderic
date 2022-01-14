@@ -67,5 +67,10 @@ body {
     border-radius: 1rem;
     min-width: 250px;
     position: relative;
+
+    @media screen and (max-width: 768px) {
+      font-size: 2rem;
+      padding: 1rem 0;
+    }
   }
 }

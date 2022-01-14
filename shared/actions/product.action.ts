@@ -1,3 +1,4 @@
+import { CartProduct } from 'shared/models/cartProduct';
 import { Product } from 'shared/models/product';
 
 export class AddProduct {
@@ -14,4 +15,9 @@ export class RemoveAllProduct {
   static readonly type = '[Product] RemoveAll';
 
   constructor() {}
+}
+export class SetCart {
+  static readonly type = '[Product] Set';
+
+  constructor(public payload: CartProduct[]) {}
 }

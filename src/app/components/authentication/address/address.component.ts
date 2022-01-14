@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Select, Store } from '@ngxs/store';
 import { Guid } from 'guid-typescript';
 import { Observable } from 'rxjs';
-import { AddAddress, RemoveAddress } from 'shared/actions/address.action';
+import {
+  AddAddress,
+  RemoveAddress,
+  SetAddress,
+} from 'shared/actions/address.action';
 import { Address } from 'shared/models/address';
 import { AddressState } from 'shared/states/address-state';
 
@@ -39,8 +43,8 @@ export class AddressComponent {
   handleSubmit(): void {
     if (this.addressesForm.dirty && this.addressesForm.valid) {
       const addr = new Address();
-      const subscription = this.nextId$.subscribe((id) => {
-        addr.id = id;
+      const subscription = this.nextId$.subscribe((id: Guid) => {
+        addr.id = id.toJSON().value;
       });
       addr.street = this.addressesForm.value.street;
       addr.zip_code = this.addressesForm.value.zip_code;

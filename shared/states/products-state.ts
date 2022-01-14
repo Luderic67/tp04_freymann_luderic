@@ -4,6 +4,7 @@ import {
   AddProduct,
   RemoveAllProduct,
   RemoveProduct,
+  SetCart,
 } from 'shared/actions/product.action';
 import { CartProduct } from 'shared/models/cartProduct';
 import { Product } from 'shared/models/product';
@@ -49,6 +50,10 @@ export class ProductState {
     return product;
   }
 
+  updateLocalCart(_products: CartProduct[]) {
+    localStorage.setItem('cart', JSON.stringify(_products));
+  }
+
   @Action(AddProduct)
   add(
     { getState, patchState }: StateContext<ProductsStateModel>,
@@ -60,13 +65,17 @@ export class ProductState {
     if (cartProduct) {
       cartProduct.quantity++;
       patchState({
-        products: [...state.products],
+        products: state.products,
       });
+      // Localstorage
+      this.updateLocalCart(state.products);
     } else {
       let newCartProduct = new CartProduct(payload, 1);
       patchState({
         products: [...state.products, newCartProduct],
       });
+      // Localstorage
+      this.updateLocalCart([...state.products, newCartProduct]);
     }
   }
 
@@ -84,18 +93,42 @@ export class ProductState {
           (cartProdu) => cartProdu.product.id !== payload.id
         ),
       });
+      // Localstorage
+      this.updateLocalCart(
+        state.products.filter(
+          (cartProdu) => cartProdu.product.id !== payload.id
+        )
+      );
     } else if (cartProduct && cartProduct.quantity > 1) {
       cartProduct.quantity--;
       patchState({
         products: state.products,
       });
+      // Localstorage
+      this.updateLocalCart(state.products);
     }
   }
 
   @Action(RemoveAllProduct)
   removeAll({ getState, patchState }: StateContext<ProductsStateModel>) {
+    const state = getState();
+
     patchState({
       products: [],
+    });
+
+    // Localstorage
+    this.updateLocalCart([]);
+  }
+
+  @Action(SetCart)
+  set(
+    { getState, patchState }: StateContext<ProductsStateModel>,
+    { payload }: SetCart
+  ) {
+    console.log(payload);
+    patchState({
+      products: [...payload],
     });
   }
 }

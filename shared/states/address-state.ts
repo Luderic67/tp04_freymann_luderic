@@ -5,6 +5,7 @@ import {
   AddAddress,
   RemoveAddress,
   RemoveAllAddress,
+  SetAddress,
 } from 'shared/actions/address.action';
 import { Address } from 'shared/models/address';
 import { AddressesStateModel } from './address-state-model';
@@ -32,6 +33,10 @@ export class AddressState {
     return Guid.create();
   }
 
+  updateLocalCart(_products: Address[]) {
+    localStorage.setItem('addresses', JSON.stringify(_products));
+  }
+
   @Action(AddAddress)
   add(
     { getState, patchState }: StateContext<AddressesStateModel>,
@@ -42,6 +47,9 @@ export class AddressState {
     patchState({
       addresses: [...state.addresses, payload],
     });
+
+    // Localstorage
+    this.updateLocalCart([...state.addresses, payload]);
   }
 
   @Action(RemoveAddress)
@@ -54,12 +62,32 @@ export class AddressState {
     patchState({
       addresses: state.addresses.filter((address) => address.id !== payload.id),
     });
+
+    // Localstorage
+    this.updateLocalCart(
+      state.addresses.filter((address) => address.id !== payload.id)
+    );
   }
 
   @Action(RemoveAllAddress)
   removeAll({ getState, patchState }: StateContext<AddressesStateModel>) {
+    const state = getState();
+
     patchState({
       addresses: [],
+    });
+
+    // Localstorage
+    this.updateLocalCart([]);
+  }
+
+  @Action(SetAddress)
+  set(
+    { getState, patchState }: StateContext<AddressesStateModel>,
+    { payload }: SetAddress
+  ) {
+    patchState({
+      addresses: [...payload],
     });
   }
 }

@@ -107,7 +107,7 @@ select:focus {
   border-radius: 15px;
 
   @media screen and (max-width: 768px) {
-    width: 100%;
+    flex-direction: column;
   }
 
   div.container {
@@ -131,6 +131,12 @@ select:focus {
           display: flex;
           justify-content: center;
           align-items: center;
+
+          @media screen and (max-width: 768px) {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+          }
 
           .label {
             font-weight: bold;
@@ -167,7 +173,7 @@ select:focus {
         padding: 0.4rem 0;
         cursor: pointer;
         border-radius: 10px;
-        font-size: 1rem;
+        font-size: 1.4rem;
         background: none;
         font-weight: bold;
         color: rgba(255, 255, 255, 1);

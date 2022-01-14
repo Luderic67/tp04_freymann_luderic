@@ -21,7 +21,6 @@ import { FormComponent } from './components/authentication/form/form.component';
 import { ControlMessagesComponent } from './components/authentication/control-messages/control-messages.component';
 import { ResumeComponent } from './components/authentication/resume/resume.component';
 import { PhoneNumberPipe } from './pipes/phone-number.pipe';
-import { ListComponent } from './components/catalog/list/list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListItemComponent } from './components/catalog/list-item/list-item.component';
 import { SearchbarComponent } from './components/catalog/searchbar/searchbar.component';
@@ -66,7 +65,6 @@ const routes: Routes = [
     ControlMessagesComponent,
     ResumeComponent,
     PhoneNumberPipe,
-    ListComponent,
     ListItemComponent,
     SearchbarComponent,
     SignupComponent,

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Product } from 'shared/models/product';
 import { Store } from '@ngxs/store';
 import { RemoveAllProduct } from 'shared/actions/product.action';
+import { CartProduct } from 'shared/models/cartProduct';
 
 @Component({
   selector: 'app-cart',
@@ -12,7 +13,7 @@ import { RemoveAllProduct } from 'shared/actions/product.action';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent {
-  @Select(ProductState.getProducts) products$!: Observable<Product[]>;
+  @Select(ProductState.getProducts) products$!: Observable<CartProduct[]>;
   @Select(ProductState.getTotalPrice) total$!: Observable<number>;
 
   constructor(private store: Store) {}
