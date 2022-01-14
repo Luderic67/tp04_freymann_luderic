@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
+import { Guid } from 'guid-typescript';
 import {
   AddAddress,
   RemoveAddress,
@@ -27,8 +28,8 @@ export class AddressState {
   }
 
   @Selector()
-  static getNextId(state: AddressesStateModel): number {
-    return state.addresses.length + 1;
+  static getNextId(state: AddressesStateModel): Guid {
+    return Guid.create();
   }
 
   @Action(AddAddress)

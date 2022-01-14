@@ -35,6 +35,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductState } from 'shared/states/products-state';
 import { ProductDetailsComponent } from './components/catalog/product-details/product-details.component';
 import { AddressComponent } from './components/authentication/address/address.component';
+import { AddressState } from 'shared/states/address-state';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -81,7 +82,7 @@ const routes: Routes = [
     FontAwesomeModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxsModule.forRoot([ProductState]),
+    NgxsModule.forRoot([ProductState, AddressState]),
     RouterModule.forRoot(routes),
   ],
   exports: [RouterModule],

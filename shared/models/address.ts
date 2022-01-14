@@ -1,5 +1,7 @@
+import { Guid } from 'guid-typescript';
+
 export class Address {
-  id!: number;
+  id!: Guid;
   street!: string;
   zip_code!: number;
   city!: string;

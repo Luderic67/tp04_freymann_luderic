@@ -40,16 +40,45 @@
   </form>
 </div>
 <div class="card">
-  <h2 class="card_title">ADDRESSES</h2>
-  <div *ngIf="addresses$ | async as addresses">
-    <p *ngIf="addressesLength$ | async as addressesLength">
-      Number of addresses : {{ addressesLength }}
+  <h2 class="card_title">
+    ADDRESSES
+    <p
+      class="addresses_number"
+      *ngIf="addressesLength$ | async as addressesLength"
+    >
+      {{ addressesLength }}
     </p>
-    <div *ngFor="let address of addresses">
-      <p>{{ address.street }}</p>
-      <p>{{ address.zip_code }}</p>
-      <p>{{ address.city }}</p>
-      <p>{{ address.country }}</p>
+  </h2>
+  <div *ngIf="addresses$ | async as addresses">
+    <div class="list" *ngFor="let address of addresses">
+      <div class="container-left">
+        <div class="section-top">
+          <h2>Address {{ address.id }}</h2>
+        </div>
+        <div class="section-bottom">
+          <div class="group-left">
+            <p class="label">Street</p>
+            <p>{{ address.street }}</p>
+            <p class="label">Zip code</p>
+            <p>{{ address.zip_code }}</p>
+          </div>
+          <div class="group-middle">
+            <p class="label">City</p>
+            <p>{{ address.city }}</p>
+            <p class="label">Country</p>
+            <p>{{ address.country }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="container-right">
+        <button class="delete" (click)="removeAddress(address)">
+          <fa-icon [icon]="['fas', 'trash']"></fa-icon>
+        </button>
+      </div>
     </div>
+  </div>
+  <div class="error-container" *ngIf="!(addressesLength$ | async)">
+    <h3>Nothing founded</h3>
+    <fa-icon class="icon" [icon]="['fas', 'frown']"></fa-icon>
   </div>
 </div>

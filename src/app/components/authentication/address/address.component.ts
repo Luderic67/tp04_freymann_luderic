@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Select, Store } from '@ngxs/store';
+import { Guid } from 'guid-typescript';
 import { Observable } from 'rxjs';
-import { AddAddress } from 'shared/actions/address.action';
+import { AddAddress, RemoveAddress } from 'shared/actions/address.action';
 import { Address } from 'shared/models/address';
 import { AddressState } from 'shared/states/address-state';
 
@@ -15,7 +16,7 @@ export class AddressComponent {
   @Select(AddressState.getAddresses) addresses$!: Observable<Address[]>;
   @Select(AddressState.getAddressesLength)
   addressesLength$!: Observable<number>;
-  @Select(AddressState.getNextId) nextId$!: Observable<number>;
+  @Select(AddressState.getNextId) nextId$!: Observable<Guid>;
 
   locations: string[] = [
     'France',
@@ -38,13 +39,16 @@ export class AddressComponent {
   handleSubmit(): void {
     if (this.addressesForm.dirty && this.addressesForm.valid) {
       const addr = new Address();
-      addr.id = 1;
+      const subscription = this.nextId$.subscribe((id) => {
+        addr.id = id;
+      });
       addr.street = this.addressesForm.value.street;
       addr.zip_code = this.addressesForm.value.zip_code;
       addr.city = this.addressesForm.value.city;
       addr.country = this.addressesForm.value.country;
 
       this.addAddress(addr);
+      subscription.unsubscribe();
     } else {
       // Toggle errors
       Object.keys(this.addressesForm.controls).forEach((field) => {
@@ -55,7 +59,10 @@ export class AddressComponent {
   }
 
   addAddress(_address: Address) {
-    console.log(_address);
     this.store.dispatch(new AddAddress(_address));
+  }
+
+  removeAddress(_address: Address) {
+    this.store.dispatch(new RemoveAddress(_address));
   }
 }

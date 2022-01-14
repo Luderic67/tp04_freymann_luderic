@@ -18,6 +18,7 @@
 
 h2 {
   margin-bottom: 0 !important;
+  color: rgba(255, 255, 255, 0.5) !important;
 }
 
 h3.price {
@@ -25,7 +26,7 @@ h3.price {
   font-size: 1.5rem;
   font-weight: bold;
   padding: 0.5rem 0;
-  color: rgba(255, 255, 255, 0.425);
+  color: rgba(255, 255, 255, 1);
   box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
   width: 20%;
   text-align: center;
@@ -92,7 +93,7 @@ button {
   align-self: center;
   font-size: 1.5rem;
   font-weight: bold;
-  color: rgba(255, 255, 255, 0.225);
+  color: rgba(255, 255, 255, 1);
   box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
   width: 40%;
   text-align: center;
@@ -115,7 +116,7 @@ button {
   }
 
   &.add:hover {
-    background-color: rgba(0, 140, 255, 0.1);
+    background-color: rgba(0, 140, 255, 0.15);
   }
 
   &:active {

@@ -62,7 +62,6 @@ export class ProductState {
       patchState({
         products: [...state.products],
       });
-      console.log(state.products);
     } else {
       let newCartProduct = new CartProduct(payload, 1);
       patchState({

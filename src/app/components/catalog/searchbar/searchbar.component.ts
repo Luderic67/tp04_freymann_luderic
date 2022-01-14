@@ -70,7 +70,6 @@ export class SearchbarComponent implements OnInit {
 
         if (this.searchbarForm.value.research) {
           list = list.filter((item: Product) => {
-            console.log('filter');
             return item.name
               .toLowerCase()
               .includes(this.searchbarForm.value.research.toLowerCase());
