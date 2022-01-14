@@ -16,6 +16,8 @@ import {
   faFileCode,
   faShoppingCart,
   faTrash,
+  faMapMarkedAlt,
+  faInfoCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { FormComponent } from './components/authentication/form/form.component';
 import { ControlMessagesComponent } from './components/authentication/control-messages/control-messages.component';
@@ -74,6 +76,7 @@ const routes: Routes = [
     CatalogComponent,
     ProductDetailsComponent,
     AddressComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,7 +98,9 @@ export class AppModule {
       faFrown,
       faFileCode,
       faShoppingCart,
-      faTrash
+      faTrash,
+      faMapMarkedAlt,
+      faInfoCircle
     );
   }
 }
