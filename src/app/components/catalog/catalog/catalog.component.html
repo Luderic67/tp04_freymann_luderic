@@ -1,0 +1,5 @@
+<div class="card">
+  <h2 class="card_title">CATALOG</h2>
+  <app-searchbar (setList)="setList($event)"></app-searchbar>
+  <app-list [products]="products" [isDeletable]="false"></app-list>
+</div>

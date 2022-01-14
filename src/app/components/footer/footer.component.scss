@@ -32,9 +32,10 @@
     cursor: pointer;
     align-items: center;
     vertical-align: middle;
+    transition: transform 100ms ease-in-out;
 
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.075);
     }
 
     p {

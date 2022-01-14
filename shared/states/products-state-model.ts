@@ -1,5 +1,5 @@
-import { Product } from 'shared/models/product';
+import { CartProduct } from 'shared/models/cartProduct';
 
 export class ProductsStateModel {
-  products!: Product[];
+  products!: CartProduct[];
 }

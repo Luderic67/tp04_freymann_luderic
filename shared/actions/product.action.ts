@@ -5,9 +5,13 @@ export class AddProduct {
 
   constructor(public payload: Product) {}
 }
-
 export class RemoveProduct {
   static readonly type = '[Product] Remove';
 
   constructor(public payload: Product) {}
+}
+export class RemoveAllProduct {
+  static readonly type = '[Product] RemoveAll';
+
+  constructor() {}
 }

@@ -1,0 +1,65 @@
+:host {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.form {
+  &-field {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: 1rem;
+      margin: 0.2rem;
+    }
+
+    option {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    input,
+    select {
+      box-sizing: border-box;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      padding: 0.7rem 1rem;
+      font-size: 1rem;
+      margin: 0.3rem 0;
+      border: none;
+      border-radius: 15px;
+    }
+  }
+
+  button {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    height: fit-content;
+    padding: 0.7rem 30px;
+    cursor: pointer;
+    background: black;
+    font-size: 1rem;
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 0);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: 0.3s all ease;
+    margin-top: 1rem;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.25);
+      color: white;
+    }
+  }
+}

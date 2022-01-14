@@ -1,4 +1,7 @@
 <div class="list-container">
+  <div class="section-quantity" *ngIf="quantity">
+    <p>{{ quantity }}</p>
+  </div>
   <div class="section-name">
     <h3>{{ product.name }}</h3>
   </div>
@@ -6,12 +9,14 @@
     <p>{{ product.price }}€</p>
   </div>
   <div class="section-actions">
-    <button class="details">Details</button>
-    <button class="add" (click)="addToCart()">
+    <button class="details" [routerLink]="['/products/product', product.id]">
+      Details
+    </button>
+    <button class="add" (click)="addToCart()" *ngIf="!isDeletable">
       <fa-icon [icon]="['fas', 'shopping-cart']"></fa-icon>
     </button>
-    <button class="add" (click)="addToCart()" *ngIf="isDeletable">
-      deletos
+    <button class="delete" (click)="removeFromCart()" *ngIf="isDeletable">
+      <fa-icon [icon]="['fas', 'trash']"></fa-icon>
     </button>
   </div>
 </div>

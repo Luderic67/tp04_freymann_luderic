@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { AddProduct } from 'shared/actions/product.action';
+import { AddProduct, RemoveProduct } from 'shared/actions/product.action';
 import { Product } from 'shared/models/product';
 
 @Component({
@@ -9,6 +9,7 @@ import { Product } from 'shared/models/product';
   styleUrls: ['./list-item.component.scss'],
 })
 export class ListItemComponent {
+  @Input() quantity!: number | null;
   @Input() product!: Product;
   @Input() isDeletable!: boolean;
 
@@ -16,5 +17,9 @@ export class ListItemComponent {
 
   addToCart() {
     this.store.dispatch(new AddProduct(this.product));
+  }
+
+  removeFromCart() {
+    this.store.dispatch(new RemoveProduct(this.product));
   }
 }

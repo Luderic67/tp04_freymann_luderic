@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Select } from '@ngxs/store';
+import { ProductState } from 'shared/states/products-state';
+import { Observable } from 'rxjs';
+import { Product } from 'shared/models/product';
+import { Store } from '@ngxs/store';
+import { RemoveAllProduct } from 'shared/actions/product.action';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  styleUrls: ['./cart.component.scss'],
 })
-export class CartComponent implements OnInit {
+export class CartComponent {
+  @Select(ProductState.getProducts) products$!: Observable<Product[]>;
+  @Select(ProductState.getTotalPrice) total$!: Observable<number>;
 
-  constructor() { }
+  constructor(private store: Store) {}
 
-  ngOnInit(): void {
+  removeAll() {
+    this.store.dispatch(new RemoveAllProduct());
   }
-
 }

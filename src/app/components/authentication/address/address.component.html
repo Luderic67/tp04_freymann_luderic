@@ -1,0 +1,55 @@
+<div class="card">
+  <h2 class="card_title">CREATE ADDRESS</h2>
+  <form class="form" [formGroup]="addressesForm" (ngSubmit)="handleSubmit()">
+    <div class="form-group">
+      <h2>Address</h2>
+      <div class="form-field">
+        <label for="street">Street <span>*</span></label>
+        <input id="street" type="text" formControlName="street" />
+        <app-control-messages
+          [control]="addressesForm.get('street')"
+        ></app-control-messages>
+      </div>
+      <div class="form-field">
+        <label for="zip_code">Zip Code <span>*</span></label>
+        <input id="zip_code" type="number" formControlName="zip_code" />
+        <app-control-messages
+          [control]="addressesForm.get('zip_code')"
+        ></app-control-messages>
+      </div>
+      <div class="form-field">
+        <label for="city">City <span>*</span></label>
+        <input id="city" type="text" formControlName="city" />
+        <app-control-messages
+          [control]="addressesForm.get('city')"
+        ></app-control-messages>
+      </div>
+      <div class="form-field">
+        <label for="country">Country <span>*</span></label>
+        <select id="country" formControlName="country">
+          <option *ngFor="let loc of locations" [ngValue]="loc">
+            {{ loc }}
+          </option>
+        </select>
+        <app-control-messages
+          [control]="addressesForm.get('country')"
+        ></app-control-messages>
+      </div>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+<div class="card">
+  <h2 class="card_title">ADDRESSES</h2>
+  <div *ngIf="addresses$ | async as addresses">
+    <p *ngIf="addressesLength$ | async as addressesLength">
+      Number of addresses : {{ addressesLength }}
+    </p>
+    <div *ngFor="let address of addresses">
+      <p>{{ address.street }}</p>
+      <p>{{ address.zip_code }}</p>
+      <p>{{ address.city }}</p>
+      <p>{{ address.country }}</p>
+    </div>
+  </div>
+</div>

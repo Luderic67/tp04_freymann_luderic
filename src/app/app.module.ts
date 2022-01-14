@@ -15,6 +15,7 @@ import {
   faFrown,
   faFileCode,
   faShoppingCart,
+  faTrash,
 } from '@fortawesome/free-solid-svg-icons';
 import { FormComponent } from './components/authentication/form/form.component';
 import { ControlMessagesComponent } from './components/authentication/control-messages/control-messages.component';
@@ -28,9 +29,12 @@ import { SignupComponent } from './components/authentication/signup/signup.compo
 import { NotFoundComponent } from './components/errors/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { CartComponent } from './components/catalog/cart/cart.component';
+import { CatalogComponent } from './components/catalog/catalog/catalog.component';
 import { NgxsModule } from '@ngxs/store';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductState } from 'shared/states/products-state';
+import { ProductDetailsComponent } from './components/catalog/product-details/product-details.component';
+import { AddressComponent } from './components/authentication/address/address.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -68,6 +72,9 @@ const routes: Routes = [
     NotFoundComponent,
     HomeComponent,
     CartComponent,
+    CatalogComponent,
+    ProductDetailsComponent,
+    AddressComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,6 +90,13 @@ const routes: Routes = [
 })
 export class AppModule {
   constructor(private library: FaIconLibrary) {
-    library.addIcons(faGithub, faSearch, faFrown, faFileCode, faShoppingCart);
+    library.addIcons(
+      faGithub,
+      faSearch,
+      faFrown,
+      faFileCode,
+      faShoppingCart,
+      faTrash
+    );
   }
 }
