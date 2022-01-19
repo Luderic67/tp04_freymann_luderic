@@ -7,6 +7,10 @@
       [product]="product.product"
       [quantity]="product.quantity"
     ></app-list-item>
+    <div class="error-container" *ngIf="!(products.length)">
+      <h3>No product found in your cart</h3>
+      <fa-icon class="icon" [icon]="['fas', 'frown']"></fa-icon>
+    </div>
   </div>
   <button (click)="removeAll()" class="delete-all" *ngIf="total$ | async">
     Delete all
