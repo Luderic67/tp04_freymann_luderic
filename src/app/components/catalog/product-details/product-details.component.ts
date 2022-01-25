@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { AddProduct } from 'shared/actions/product.action';
 import { Product } from 'shared/models/product';
 import { ListService } from 'src/app/services/list.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-product-details',
@@ -20,7 +21,8 @@ export class ProductDetailsComponent {
   constructor(
     private route: ActivatedRoute,
     private listService: ListService,
-    private store: Store
+    private store: Store,
+    private location: Location
   ) {
     this.id = this.route.snapshot.params['id'];
     this.subscription = this.listService
@@ -37,5 +39,9 @@ export class ProductDetailsComponent {
 
   addToCart() {
     this.store.dispatch(new AddProduct(this.product));
+  }
+
+  back() {
+    this.location.back();
   }
 }
